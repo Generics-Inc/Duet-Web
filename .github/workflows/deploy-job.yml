@@ -1,0 +1,23 @@
+name: Deploy by runner
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Update server directory from git
+        run: |
+          cd ~/devops/
+          git submodule update --reference web --remote
+      - name: Build and up container
+        run: |
+          cd ~/devops/
+          ./build.sh rebuild web
+      - name: Clean old images
+        run: |
+          cd ~/devops/
+          ./build.sh clean
