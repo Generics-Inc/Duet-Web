@@ -1,13 +1,11 @@
 {
-  "name": "nuxt-app",
+  "name": "duet-web",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build:docker": "nuxt build --dotenv ../.env",
+    "dev": "nuxt dev"
   },
   "dependencies": {
     "nuxt": "^3.11.2",
