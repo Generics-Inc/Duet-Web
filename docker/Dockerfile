@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN nuxt build --dotenv ../.env
+RUN npm run build:docker
 
 FROM node:18-alpine
 
