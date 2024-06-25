@@ -1,0 +1,35 @@
+@import "@colors";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: var($backgroundSecond);
+    transition: .3s;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var($background);
+    transition: .3s;
+  }
+}
+
+.w-fix {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fade {
+  &-enter-active, &-leave-active {
+    transition: .3s;
+  }
+  &-leave-to, &-enter-from {
+    opacity: 0;
+    transform: scale(.99);
+  }
+}

@@ -1,0 +1,21 @@
+@import "colors";
+
+$theme-map-light: (
+        $background: #b0acce,
+        $textColor1: #ffffff,
+        $backgroundSecond: #fff,
+        $error: #E15023,
+        $success: #50f581,
+        $boxShadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25),
+        $boxShadowHover: 0 0 0 0 rgba(0, 0, 0, 0.25),
+);
+
+$theme-map-dark: (
+        $background: #0f172a,
+        $textColor1: #fff,
+        $backgroundSecond: #020617,
+        $error: #E15023,
+        $success: #65c97a,
+        $boxShadow: 0 10px 15px 0 rgba(255, 255, 255, 0.3),
+        $boxShadowHover: 0 0 0 0 rgba(255, 255, 255, 0.3),
+);
