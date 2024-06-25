@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "build:docker": "nuxt build --dotenv ../.env",
+    "build:docker": "nuxt build --dotenv .env",
     "dev": "nuxt dev"
   },
   "dependencies": {
