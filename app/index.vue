@@ -36,6 +36,7 @@ body {
 
   &__content {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow-y: auto;
   }
   &__theme {

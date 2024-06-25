@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ResizeObserver from "~/components/resizeObserver.vue";
+
 const blockRef = ref<HTMLDivElement>();
 const clientHeight = computed(() => blockRef.value?.clientHeight);
 
@@ -9,6 +11,11 @@ function goToSecondBlock() {
     behavior: 'smooth',
     top: clientHeight.value
   });
+}
+
+function onResize() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 </script>
 
@@ -38,6 +45,11 @@ function goToSecondBlock() {
         />
       </div>
     </div>
+
+    <resize-observer
+        emit-on-mount
+        @notify="onResize"
+    />
   </div>
 </template>
 
@@ -49,7 +61,7 @@ function goToSecondBlock() {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   user-select: none;
 
   &__title {
