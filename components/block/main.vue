@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const blockRef = ref<HTMLDivElement>();
 const clientHeight = computed(() => blockRef.value?.clientHeight);
-let scrollTimeoutDelay: NodeJS.Timeout;
 
 function goToSecondBlock() {
   const content = document.getElementById('appContent');
@@ -11,27 +10,6 @@ function goToSecondBlock() {
     top: clientHeight.value
   });
 }
-
-const { $listen } = useNuxtApp();
-
-$listen('onScrollContent', (target: HTMLDivElement) => {
-  const scrollPos = target.scrollTop;
-
-  clearTimeout(scrollTimeoutDelay);
-  scrollTimeoutDelay = setTimeout(() => {
-    if (scrollPos > 0 && scrollPos < ((clientHeight.value ?? 0) / 2)) {
-      target.scrollTo({
-        behavior: 'smooth',
-        top: clientHeight.value
-      });
-    } else if (scrollPos > ((clientHeight.value ?? 0) / 2) && scrollPos < (clientHeight.value ?? 0)) {
-      target.scrollTo({
-        behavior: 'smooth',
-        top: 0
-      });
-    }
-  }, 150);
-});
 </script>
 
 <template>
